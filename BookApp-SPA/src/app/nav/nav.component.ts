@@ -8,6 +8,7 @@ import { AuthService } from '../_services/auth.service';
 })
 export class NavComponent implements OnInit {
   model: any = {};
+  registerMode = false;
 
   constructor(private authService: AuthService) { }
 
@@ -20,7 +21,7 @@ export class NavComponent implements OnInit {
         console.log('Logged in!!!');
       },
       error => {
-        console.log('Failed! ')
+        console.log('Failed! ');
       }
     );
   }
@@ -33,6 +34,14 @@ export class NavComponent implements OnInit {
   logOut() {
     localStorage.removeItem('token');
     console.log('logged out');
+  }
+
+  registerToggle() {
+    this.registerMode = true; 
+  }
+
+  cancelRegisterMode(registerMode: boolean) {
+    this.registerMode = registerMode;
   }
 
 }

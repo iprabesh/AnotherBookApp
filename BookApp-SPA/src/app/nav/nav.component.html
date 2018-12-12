@@ -1,7 +1,7 @@
 <nav class ="navbar navbar-expand-md navbar-dark bg-dark">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item active">
-      <a class="nav-link p-3" href="#">Book Jungle </a>
+      <a class="nav-link p-3 ml-2 mr-2" href="#">Book Jungle </a>
     </li>
     <li class="nav-item">
       <a class="nav-link w-50 p-3" href="#">Home</a>
@@ -24,8 +24,15 @@
     <input type="password" class="form-control mr-sm-2" placeholder="Password"
        name="password" required [(ngModel)]="model.password">
     <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Log In</button> | 
-    <button class="btn btn-danger my-2 my-sm-0 " type="submit">Register</button>
+    <button class="btn btn-danger my-2 my-sm-0 " (click)="registerToggle()">Register</button>
   </form>
-
-
 </nav>
+
+<div *ngIf="registerMode" class="container">
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+        </div>
+    </div>
+</div>
+    
