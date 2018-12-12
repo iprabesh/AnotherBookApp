@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BookApp.API.Data;
+using BookApp.API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,7 +28,7 @@ namespace BookApp.API.Controllers
             return Ok(books);
         }
         
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name="GetBook")]
 
         public async Task<IActionResult> GetBook(int id)
         {
@@ -34,6 +36,15 @@ namespace BookApp.API.Controllers
 
             return Ok(book);
         } 
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult Create(Book book)
+        {
+            _context.Books.Add(book);
+            _context.SaveChanges();
+            return CreatedAtRoute("GetBook", new {id = book.Id}, book);
+        }
 
     }
 }
