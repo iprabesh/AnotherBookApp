@@ -10,6 +10,11 @@ import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { MidnavComponent } from './midnav/midnav.component';
+import { FooterComponent } from './footer/footer.component';
+import { NewreleaseComponent } from './newrelease/newrelease.component';
+import { BestComponent } from './best/best.component';
+import { ComingsoonComponent } from './comingsoon/comingsoon.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -19,12 +24,17 @@ import { MidnavComponent } from './midnav/midnav.component';
       NavComponent,
       HomeComponent,
       RegisterComponent,
-      MidnavComponent
+      MidnavComponent,
+      FooterComponent,
+      NewreleaseComponent,
+      BestComponent,
+      ComingsoonComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
-      FormsModule
+      FormsModule,
+      AppRoutingModule
    ],
    providers: [
       AuthService
