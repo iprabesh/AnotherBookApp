@@ -20,6 +20,8 @@ export class RegisterComponent implements OnInit {
     }, error => {
       console.log('failed');
     });
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
+    this.cancel();
   }
 
   cancel() {

@@ -1,3 +1,17 @@
-<p>
-  best works!
-</p>
+ <div class="container-fluid">
+    <h3>Best-Book-List</h3>
+    <div class="row">
+        <div *ngFor="let book of books" class="col-md">
+          <div *ngIf="book.rating > 5">
+          <div class="card text-white text-center bg-danger mb-3 mr-3">
+              <div class="card-body">
+                 <p>{{book.title}}</p> 
+                  <p>Author: {{book.author}}</p>
+                  <p>Rating: {{book.rating}}</p>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div> 
+  

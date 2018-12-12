@@ -15,6 +15,8 @@ import { NewreleaseComponent } from './newrelease/newrelease.component';
 import { BestComponent } from './best/best.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { AddbookComponent } from './addbook/addbook.component';
+import { BookService } from './_services/book.service';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { AppRoutingModule } from './/app-routing.module';
       FooterComponent,
       NewreleaseComponent,
       BestComponent,
-      ComingsoonComponent
+      ComingsoonComponent,
+      AddbookComponent
    ],
    imports: [
       BrowserModule,
@@ -37,7 +40,8 @@ import { AppRoutingModule } from './/app-routing.module';
       AppRoutingModule
    ],
    providers: [
-      AuthService
+      AuthService,
+      BookService
    ],
    bootstrap: [
       AppComponent

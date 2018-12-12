@@ -1,16 +1,24 @@
-<form #registerForm="ngForm" (ngSubmit)="register()">
+<form #registerForm="ngForm" (ngSubmit)="register()" novalidate>
    <h2 class="text-center text-primary">Sign Up</h2>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" required name="username"
-      [(ngModel)] = "model.username" placeholder="user name">
+    <input type="text" class="form-control" required name="username"
+      [(ngModel)] = "model.username" placeholder="user name" >
   </div>
 
   <div class="form-group">
-    <input type="password" class="form-control" required name="password"
-      [(ngModel)]="model.password" placeholder="Password">
+    <input id="password" type="password" class="form-control" required  minlength="6" name="password"
+      [(ngModel)]="model.password" placeholder="Password" #password="ngModel">
+
+    <div *ngIf ="password.invalid && (password.dirty || password.touched)"
+       class="alert alert-danger">
+        
+       <div *ngIf="model.password.errors.minlength">
+          Password Must be at least 6 character long.
+        </div>
+      </div>
   </div>
-  
-  <button [disabled]="!registerForm.valid" type="submit" class="btn btn-success">Register</button>
+ 
+  <button type="submit" class="btn btn-success">Register</button>
   <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
 </form>
+

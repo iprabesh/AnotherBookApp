@@ -37,7 +37,7 @@ export class NavComponent implements OnInit {
   }
 
   registerToggle() {
-    this.registerMode = true; 
+    this.registerMode = true;
   }
 
   cancelRegisterMode(registerMode: boolean) {

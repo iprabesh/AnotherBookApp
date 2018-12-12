@@ -37,7 +37,7 @@ namespace BookApp.API.Controllers
             return Ok(book);
         } 
 
-        [Authorize]
+        
         [HttpPost]
         public IActionResult Create(Book book)
         {

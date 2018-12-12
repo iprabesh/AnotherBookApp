@@ -4,14 +4,16 @@
       <a class="nav-link p-3 ml-2 mr-2" href="#">Book Jungle </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link w-50 p-3" href="#">Home</a>
+      <a class="nav-link w-50 p-3" routerLink="/home">Home</a>
     </li>
     <li class="nav-item">
       <a class="nav-link w-50 p-3" href="#">Reviews</a>
     </li>
+    <div *ngIf="loggedIn()">
     <li class="nav-item">
-      <a href="#" class="nav-link w-100 p-3">Add Book</a>
+      <a  class="nav-link w-100 p-3" routerLink="/addbook">Add Book</a>
     </li>
+    </div>
   </ul>
 
   <div *ngIf='loggedIn()'> 
